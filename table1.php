@@ -41,8 +41,8 @@ if (!empty($results)) {
                 <td>{$row->mobile}</td>
                 <td>{$row->course_name}</td>
                 <td>{$row->coordinator_name}</td>
-                <td><button type='button' onclick='show({$row->id})'>Update</button></td>
-                <td>
+               
+               
         <td>
         <form method='post' action=''>
         <input type='hidden' name='delete_student' value='{$row->id}' />
@@ -58,6 +58,12 @@ if (!empty($results)) {
   <a href="http://localhost/wordpress1/wordpress/add-marks/?id=<?php echo $row->id ?>&course_id=<?php echo $row->course_id ?>" class='button'>Add Marks</a>
    
 </td>
+<td>
+<a  id="show-subjects-and-marks" data-student-id='<?php echo $row->id ?>' class="button">Ajax</a>
+
+    </td>
+
+<div id="subjects-and-marks-container"></div>
 
    <?php
               echo "</tr>";
@@ -76,24 +82,5 @@ get_footer();
 ?>
 
 
-
-
-
-<!-- <div id="marks-container" style="display: none;"></div>
-
-<script>
-function showMarks(studentId) {
-    // Use AJAX to fetch and display marks within the hidden div
-    jQuery.ajax({
-        url: '<?php echo admin_url('admin-ajax.php'); ?>',
-        type: 'POST',
-        data: {
-            action: 'fetch_student_marks',
-            student_id: studentId
-        },
-        success: function(response) {
-            jQuery('#marks-container').html(response).slideDown();
-        }
-    });
-}
-</script> -->
+<!-- Update button -->
+<!-- <td><button type='button' onclick='show({$row->id})'>Update</button></td> -->
